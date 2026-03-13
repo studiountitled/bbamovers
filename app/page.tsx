@@ -90,6 +90,13 @@ const reviews = [
   },
 ];
 
+const galleryImages = [
+  "/gallery-5.jpg",
+  "/gallery-10.jpg",
+  "/gallery-7.jpg",
+  "/gallery-8.jpg",
+];
+
 const faqs = [
   {
     question: "How fast can I get a quote?",
@@ -166,35 +173,35 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
                   Alabama moving company
                 </p>
-              <h1 className="section-title mt-4 text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
-                Moving day, but make it easy.
-              </h1>
-              <p className="mt-4 max-w-xl text-[18px] text-[color:var(--muted)] sm:text-[19px]">
-                <span className="text-[color:var(--ink)]">
-                  We turn moving chaos into calm.
-                </span>{" "}
-                BBA Movers handles residential, commercial, and long-distance
-                relocations with a friendly crew, straightforward pricing, and a
-                plan that keeps the vibes smooth.
-              </p>
-              <div className="mt-6 flex flex-wrap gap-3">
-                <a
-                  className="cta-button rounded-full px-6 py-3 text-sm font-semibold"
-                  href="#quote"
-                >
-                  Request a Quote
-                </a>
-                <a
-                  className="outline-button rounded-full px-6 py-3 text-sm font-semibold"
-                  href="#contact"
-                >
-                  Contact Us
-                </a>
+                <h1 className="section-title mt-4 text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
+                  Moving day, but make it easy.
+                </h1>
+                <p className="mt-4 max-w-xl text-[18px] text-[color:var(--muted)] sm:text-[19px]">
+                  <span className="text-[color:var(--ink)]">
+                    We turn moving chaos into calm.
+                  </span>{" "}
+                  BBA Movers handles residential, commercial, and long-distance
+                  relocations with a friendly crew, straightforward pricing, and
+                  a plan that keeps the vibes smooth.
+                </p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <a
+                    className="cta-button rounded-full px-6 py-3 text-sm font-semibold"
+                    href="#quote"
+                  >
+                    Request a Quote
+                  </a>
+                  <a
+                    className="outline-button rounded-full px-6 py-3 text-sm font-semibold"
+                    href="#contact"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+                <p className="mt-6 text-base font-semibold text-[color:var(--accent)]">
+                  Same-day availability · No hidden fees · Call 334 912 2747
+                </p>
               </div>
-              <p className="mt-6 text-base font-semibold text-[color:var(--accent)]">
-                Same-day availability · No hidden fees · Call 334 912 2747
-              </p>
-            </div>
 
               <div className="glass-card rounded-[28px] p-6">
                 <div className="rounded-2xl bg-[color:var(--brand-ember)]/10 p-6 text-[16.5px] sm:text-[17px]">
@@ -205,12 +212,12 @@ export default function Home() {
                     We pack like a puzzle.
                   </h2>
                   <p className="mt-3 text-base text-[color:var(--muted)]">
-                    Think tight stacks, padded corners, and a crew that treats your
-                    stuff like it’s their grandma’s china.
+                    Think tight stacks, padded corners, and a crew that treats
+                    your stuff like it’s their grandma’s china.
                   </p>
                   <div className="mt-6 rounded-2xl border border-white/50 bg-white/80 p-4 text-base text-[color:var(--muted)]">
-                    Based in Alabama and serving Georgia too. We bring the truck,
-                    you bring the snacks.
+                    Based in Alabama and serving Georgia too. We bring the
+                    truck, you bring the snacks.
                   </div>
                 </div>
               </div>
@@ -229,29 +236,26 @@ export default function Home() {
 
           <section className="grid gap-6 lg:grid-cols-3">
             {services.map((service) => (
-              <div
-                key={service.title}
-                className="glass-card rounded-3xl p-6"
-              >
+              <div key={service.title} className="glass-card rounded-3xl p-6">
                 <h3 className="section-title text-2xl font-semibold text-[color:var(--ink)]">
                   {service.title}
                 </h3>
                 <p className="mt-3 text-sm text-[color:var(--muted)]">
                   {service.copy}
                 </p>
-                <div className="mt-4 h-36 overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10">
+                <div className="mt-4 aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10">
                   <Image
                     src={
                       service.title === "Residential Moving"
-                        ? "/residential.jpg"
+                        ? "/gallery-1.jpg"
                         : service.title === "Commercial Moving"
-                        ? "/commercial.jpg"
-                        : "/long-distance.jpg"
+                          ? "/gallery-2.jpg"
+                          : "/gallery-4.jpg"
                     }
                     alt={service.title}
                     width={600}
                     height={360}
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-cover object-top"
                   />
                 </div>
               </div>
@@ -267,8 +271,8 @@ export default function Home() {
                 Clear steps, good energy.
               </h2>
               <p className="mt-4 text-sm text-[color:var(--muted)]">
-                You’ll always know who’s handling your move, what’s next, and how
-                to reach us if anything changes.
+                You’ll always know who’s handling your move, what’s next, and
+                how to reach us if anything changes.
               </p>
             </div>
             <div className="grid gap-4">
@@ -346,27 +350,21 @@ export default function Home() {
                 <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
                   Move highlights
                 </p>
-                <h2 className="section-title mt-3 text-3xl font-semibold">
-                  Room for your before and after glow-up.
-                </h2>
               </div>
-              <a
-                className="outline-button rounded-full px-4 py-2 text-sm font-semibold"
-                href="#contact"
-              >
-                See full gallery
-              </a>
             </div>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {Array.from({ length: 4 }).map((_, index) => (
+            <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {galleryImages.map((src, index) => (
                 <div
                   key={`photo-${index}`}
-                  className="relative h-44 overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10"
+                  className="relative h-56 overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[color:var(--brand-ember)]/10 via-transparent to-[color:var(--brand-amber)]/30" />
-                  <p className="absolute bottom-4 left-4 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                    Photo spot
-                  </p>
+                  <Image
+                    src={src}
+                    alt={`BBA Movers gallery ${index + 1}`}
+                    width={900}
+                    height={700}
+                    className="h-full w-full object-cover"
+                  />
                 </div>
               ))}
             </div>
@@ -472,14 +470,18 @@ export default function Home() {
         </main>
       </div>
 
-      <footer id="contact" className="border-t border-[color:var(--brand-ember)]/10 bg-white/80">
+      <footer
+        id="contact"
+        className="border-t border-[color:var(--brand-ember)]/10 bg-white/80"
+      >
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
               BBA Movers
             </p>
             <p className="text-xs text-[color:var(--muted)]">
-              TETRIS WORLD CHAMPIONS · Residential, Commercial &amp; Long Distance
+              TETRIS WORLD CHAMPIONS · Residential, Commercial &amp; Long
+              Distance
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[color:var(--muted)]">
@@ -518,7 +520,10 @@ export default function Home() {
               Get your quote today
             </p>
           </div>
-          <a className="cta-button rounded-full px-4 py-2 text-sm font-semibold" href="#quote">
+          <a
+            className="cta-button rounded-full px-4 py-2 text-sm font-semibold"
+            href="#quote"
+          >
             Quote
           </a>
         </div>
