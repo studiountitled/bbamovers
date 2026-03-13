@@ -179,10 +179,7 @@ export default function Home() {
                 <p className="mt-4 max-w-xl text-[18px] text-[color:var(--muted)] sm:text-[19px]">
                   <span className="text-[color:var(--ink)]">
                     We turn moving chaos into calm.
-                  </span>{" "}
-                  BBA Movers handles residential, commercial, and long-distance
-                  relocations with a friendly crew, straightforward pricing, and
-                  a plan that keeps the vibes smooth.
+                  </span>
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
                   <a
