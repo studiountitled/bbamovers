@@ -41,7 +41,7 @@ const stats = [
 const pricing = [
   {
     title: "10 ft Truck",
-    price: "$150 + $5/mile",
+    price: "$200 + $5/mile",
     note: "Recommended for studio moves",
   },
   {
@@ -51,12 +51,12 @@ const pricing = [
   },
   {
     title: "20 ft Truck",
-    price: "$450 + $4/mile",
+    price: "$400 + $3/mile",
     note: "Recommended for 2BR moves",
   },
   {
     title: "26 ft Truck",
-    price: "$600 + $3/mile",
+    price: "$700 + $3/mile",
     note: "Recommended for 3+ BR moves",
   },
 ];
@@ -66,27 +66,66 @@ const pricingNotes = [
   "Mileage is charged for the distance between pickup and drop-off locations.",
   "$50 per floor for downstairs stairs.",
   "$100 per floor for upstairs stairs.",
+  "All truck bookings include a $20 petrol fee.",
   "Free disassembly included.",
 ];
 
 const reviews = [
   {
-    name: "Tanya R.",
-    detail: "Birmingham, AL",
+    name: "Dynasty G.",
+    detail: "Verified",
+    date: "Dec 21, 2025",
     quote:
-      "Fast crew, no surprises. Everything arrived exactly how it left, which is all we wanted.",
+      "BBA Movers truly came through for me at the last minute when my original moving company canceled. They arrived on time, communicated clearly from start to finish, and were extremely professional. The team unloaded my truck efficiently and handled everything with care. They were an absolute pleasure to work with during what could have been a very stressful situation. I will always choose BBA Movers for my moving needs and highly recommend them to anyone looking for reliable service!",
   },
   {
-    name: "Marcus J.",
-    detail: "Montgomery, AL",
+    name: "Dolores W.",
+    detail: "Verified",
+    date: "Dec 10, 2025",
     quote:
-      "They handled our office move overnight. We opened the next morning with zero downtime.",
+      "They were very friendly and took special care to insure there was no damage to my bachelors chest because they had to get it through a tight corner. I highly recommend them.",
   },
   {
-    name: "Kylie S.",
-    detail: "Columbus, GA",
+    name: "Bo V.",
+    detail: "Verified",
+    date: "Dec 9, 2025",
     quote:
-      "Great communication and the price matched the quote. We felt taken care of the whole time.",
+      "Loved working with this crew. They took the time to unload my boxes with care. They didn’t rush but were efficient at the same time. Also, they were all friendly and professional. I will use them again for any more of my moving needs.",
+  },
+  {
+    name: "Bryan P.",
+    detail: "Verified",
+    date: "Jan 14, 2026",
+    quote:
+      "Excellent work. Moved a 50 year old piano from my mother’s house to mine. Very happy and will do business with them again. I highly recommend them for your move.",
+  },
+  {
+    name: "Bre N.",
+    detail: "Verified",
+    date: "Feb 1, 2026",
+    quote:
+      "This was my first time hiring movers and they were great! Very communicative, assisted with disassembling and assembling furniture. I would highly recommend them to a friend and use them in the future if needed.",
+  },
+  {
+    name: "Kristin K.",
+    detail: "Verified",
+    date: "Feb 16, 2026",
+    quote:
+      "I needed help making a move without a lot of notice. These guys were able to accommodate a tight schedule and offer a very reasonable price, with no hidden or surprise fees. They were quick to respond and patient with all of my questions. They were very communicative the day of the move to let me know when they were on the way and that they would be arriving at the time expected. They were very professional and friendly and handled everything so smoothly. BBA Movers is top notch and will be my first call if I need these services again in the future.",
+  },
+  {
+    name: "Jon B.",
+    detail: "Verified",
+    date: "Feb 21, 2026",
+    quote:
+      "Great communication and attention to detail. BBA took care of the entire move and no issues whatsoever. They disassembled my toddlers bunk bed with precision and quickness. Very friendly and customer service oriented. Highly recommend and hope to use their service again in the future.",
+  },
+  {
+    name: "KJ J.",
+    detail: "Verified",
+    date: "Mar 4, 2026",
+    quote:
+      "Friendly, fast service! We were looking for one-way moving help, Kevin responded very quickly and happily accepted the job. They showed up on time, they had their own tools and delivered!! There was attention to detail, strategic placements and meticulous execution. Hands down the best experience I’ve ever had with any moving company. I wish I could give more stars!!!",
   },
 ];
 
@@ -102,7 +141,7 @@ const faqs = [
   {
     question: "How fast can I get a quote?",
     answer:
-      "Most quotes are delivered the same day. If we need more detail, we’ll call within a few hours.",
+      "All quotes are delivered the same day. If we need more detail, we’ll call within a few hours.",
   },
   {
     question: "Do you serve areas outside Alabama?",
@@ -389,17 +428,19 @@ export default function Home() {
                   key={review.name}
                   className="glass-card flex h-full flex-col rounded-3xl p-6"
                 >
+                  <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-[color:var(--muted)]">
+                    <span className="font-semibold text-[color:var(--ink)]">
+                      {review.name}
+                    </span>
+                    <span>{review.date}</span>
+                  </div>
+                  <div className="mt-2 flex items-center gap-2 text-sm text-[color:var(--muted)]">
+                    <span className="text-[color:#2f9f5b]">★★★★★</span>
+                    <span>{review.detail}</span>
+                  </div>
                   <p className="text-sm text-[color:var(--muted)]">
                     “{review.quote}”
                   </p>
-                  <div className="mt-6">
-                    <p className="text-sm font-semibold text-[color:var(--ink)]">
-                      {review.name}
-                    </p>
-                    <p className="text-xs text-[color:var(--muted)]">
-                      {review.detail}
-                    </p>
-                  </div>
                 </div>
               ))}
             </div>
