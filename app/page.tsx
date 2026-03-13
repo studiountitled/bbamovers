@@ -91,10 +91,11 @@ const reviews = [
 ];
 
 const galleryImages = [
+  "/gallery-1.jpg",
+  "/gallery-2.jpg",
+  "/gallery-3.jpg",
+  "/gallery-4.jpg",
   "/gallery-5.jpg",
-  "/gallery-10.jpg",
-  "/gallery-7.jpg",
-  "/gallery-8.jpg",
 ];
 
 const faqs = [
@@ -244,10 +245,10 @@ export default function Home() {
                   <Image
                     src={
                       service.title === "Residential Moving"
-                        ? "/gallery-1.jpg"
+                        ? "/gallery-1.JPG"
                         : service.title === "Commercial Moving"
-                          ? "/gallery-2.jpg"
-                          : "/gallery-4.jpg"
+                          ? "/gallery-2.JPG"
+                          : "/long-distance.jpg"
                     }
                     alt={service.title}
                     width={600}
