@@ -119,13 +119,12 @@ const faqs = [
 export default function Home() {
   return (
     <div className="page-bg min-h-screen">
-      <div className="px-6 pb-16 pt-24 sm:px-10 lg:px-16">
-        <header className="fixed left-0 right-0 top-0 z-50 bg-transparent">
-          <div className="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4 sm:px-10 lg:px-16">
-            <div className="flex items-center gap-3">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--brand-ember)]/10">
-                <Image
-                  src="/logo.png"
+      <div className="px-6 pb-16 pt-8 sm:px-10 lg:px-16">
+        <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-6">
+          <div className="flex items-center gap-3">
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--brand-ember)]/10">
+              <Image
+                src="/logo.png"
                   alt="BBA Movers logo"
                   width={54}
                   height={54}
@@ -160,7 +159,6 @@ export default function Home() {
                 Request a Quote
               </a>
             </div>
-          </div>
         </header>
 
         <main className="mx-auto mt-10 w-full max-w-6xl space-y-24">
