@@ -199,7 +199,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="glass-card rounded-[28px] p-6">
+              <div className="glass-card hidden rounded-[28px] p-6 lg:block">
                 <div className="rounded-2xl bg-[color:var(--brand-ember)]/10 p-6 text-[16.5px] sm:text-[17px]">
                   <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
                     Tetris World Champions
