@@ -91,11 +91,11 @@ const reviews = [
 ];
 
 const galleryImages = [
-  "/gallery-1.jpg",
-  "/gallery-2.jpg",
-  "/gallery-3.jpg",
-  "/gallery-4.jpg",
   "/gallery-5.jpg",
+  "/gallery-10.jpg",
+  "/gallery-8.jpg",
+  "/gallery-2.jpg",
+  "/gallery-1.jpg",
 ];
 
 const faqs = [
