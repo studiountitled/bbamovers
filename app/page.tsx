@@ -125,40 +125,40 @@ export default function Home() {
             <div className="flex h-14 w-14 items-center justify-center rounded-full bg-[color:var(--brand-ember)]/10">
               <Image
                 src="/logo.png"
-                  alt="BBA Movers logo"
-                  width={54}
-                  height={54}
-                  priority
-                />
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                  BBA Movers
-                </p>
-                <p className="text-xs text-[color:var(--muted)]">
-                  Alabama &amp; Georgia
-                </p>
-              </div>
+                alt="BBA Movers logo"
+                width={54}
+                height={54}
+                priority
+              />
             </div>
-            <div className="hidden items-center gap-4 text-sm text-[color:var(--muted)] md:flex">
-              <span>TETRIS WORLD CHAMPIONS</span>
-              <span className="h-1 w-1 rounded-full bg-[color:var(--brand-ember)]/40" />
-              <span>Residential, Commercial &amp; Long Distance</span>
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                BBA Movers
+              </p>
+              <p className="text-xs text-[color:var(--muted)]">
+                Alabama &amp; Georgia
+              </p>
             </div>
-            <div className="hidden items-center gap-3 md:flex">
-              <a
-                className="outline-button rounded-xl px-4 py-2 text-sm font-semibold"
-                href="tel:13349122747"
-              >
-                Call 334 912 2747
-              </a>
-              <a
-                className="cta-button rounded-xl px-5 py-2 text-sm font-semibold"
-                href="#quote"
-              >
-                Request a Quote
-              </a>
-            </div>
+          </div>
+          <div className="hidden items-center gap-4 text-sm text-[color:var(--muted)] md:flex">
+            <span>TETRIS WORLD CHAMPIONS</span>
+            <span className="h-1 w-1 rounded-full bg-[color:var(--brand-ember)]/40" />
+            <span>Residential, Commercial &amp; Long Distance</span>
+          </div>
+          <div className="hidden items-center gap-3 md:flex">
+            <a
+              className="outline-button rounded-xl px-4 py-2 text-sm font-semibold"
+              href="tel:13349122747"
+            >
+              Call 334 912 2747
+            </a>
+            <a
+              className="cta-button rounded-xl px-5 py-2 text-sm font-semibold"
+              href="#quote"
+            >
+              Request a Quote
+            </a>
+          </div>
         </header>
 
         <main className="mx-auto mt-10 w-full max-w-6xl space-y-24">
@@ -246,7 +246,7 @@ export default function Home() {
                         ? "/gallery-1.jpg"
                         : service.title === "Commercial Moving"
                           ? "/gallery-2.jpg"
-                          : "/long-distance.jpg"
+                          : "/gallery-4.jpg"
                     }
                     alt={service.title}
                     width={600}
