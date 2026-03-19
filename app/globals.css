@@ -81,3 +81,33 @@ p {
 .outline-button:hover {
   background: rgba(255, 210, 77, 0.12);
 }
+
+.featured-pricing {
+  position: relative;
+  border: 3px solid transparent;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.88), rgba(255, 255, 255, 0.88))
+      padding-box,
+    linear-gradient(
+        120deg,
+        #ffd24d,
+        #ffc04d,
+        #ffe08a,
+        #ffd24d
+      )
+      border-box;
+  background-size: 200% 200%;
+  animation: border-shift 6s ease infinite;
+}
+
+@keyframes border-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

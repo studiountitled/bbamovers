@@ -4,7 +4,7 @@ import QuoteForm from "./components/QuoteForm";
 const services = [
   {
     title: "Residential Moving",
-    copy: "Careful packing, clear timelines, and respectful crews for homes and apartments.",
+    copy: "Clear timelines, and respectful crews for homes and apartments.",
   },
   {
     title: "Commercial Moving",
@@ -13,6 +13,11 @@ const services = [
   {
     title: "Long Distance",
     copy: "Coordinated transport across Alabama, Georgia, and beyond with tracked updates.",
+  },
+  {
+    title: "Piano Moves",
+    copy:
+      "Piano Moving\nSafe, Smooth & Secure relocation of any type of piano. Within the same building or to a new location",
   },
 ];
 
@@ -51,7 +56,7 @@ const pricing = [
   },
   {
     title: "20 ft Truck",
-    price: "$400 + $3/mile",
+    price: "$450 + $3/mile",
     note: "Recommended for 2BR moves",
   },
   {
@@ -126,6 +131,13 @@ const reviews = [
     date: "Mar 4, 2026",
     quote:
       "Friendly, fast service! We were looking for one-way moving help, Kevin responded very quickly and happily accepted the job. They showed up on time, they had their own tools and delivered!! There was attention to detail, strategic placements and meticulous execution. Hands down the best experience I’ve ever had with any moving company. I wish I could give more stars!!!",
+  },
+  {
+    name: "Taariq K.",
+    detail: "Verified",
+    date: "Mar 6, 2026",
+    quote:
+      "Kevin and Ariana were great. Showed up on time and did an amazing job sorting two storage units into one larger unit. It was a pleasure working with them and we will definitely be hiring them in the future!",
   },
 ];
 
@@ -209,7 +221,7 @@ export default function Home() {
             <div className="relative z-10 grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
               <div className="text-[17px] sm:text-[18px]">
                 <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
-                  Alabama moving company
+                  Professional Moving & Relocation Services
                 </p>
                 <h1 className="section-title mt-4 text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
                   Moving day, but make it easy.
@@ -282,10 +294,12 @@ export default function Home() {
                   <Image
                     src={
                       service.title === "Residential Moving"
-                        ? "/gallery-1.jpg"
+                        ? "/gallery-3.jpg"
                         : service.title === "Commercial Moving"
                           ? "/gallery-2.jpg"
-                          : "/gallery-3.jpg"
+                          : service.title === "Long Distance"
+                            ? "/gallery-12.jpg"
+                            : "/gallery-11.jpg"
                     }
                     alt={service.title}
                     width={600}
@@ -355,11 +369,20 @@ export default function Home() {
               {pricing.map((item) => (
                 <div
                   key={item.title}
-                  className="glass-card flex h-full flex-col rounded-3xl p-6"
+                  className={`glass-card flex h-full flex-col rounded-3xl p-6 ${
+                    item.title === "20 ft Truck" ? "featured-pricing" : ""
+                  }`}
                 >
-                  <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
-                    {item.title}
-                  </p>
+                  <div className="flex items-center justify-between gap-2">
+                    <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                      {item.title}
+                    </p>
+                    {item.title === "20 ft Truck" ? (
+                      <span className="rounded-full bg-[color:var(--brand-yellow)]/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">
+                        Recommended
+                      </span>
+                    ) : null}
+                  </div>
                   <p className="section-title mt-3 text-2xl font-semibold text-[color:var(--ink)]">
                     {item.price}
                   </p>
@@ -412,7 +435,7 @@ export default function Home() {
                   Reviews
                 </p>
                 <h2 className="section-title mt-3 text-3xl font-semibold">
-                  Real people, real happy moves.
+                  Real People, Real Reviews
                 </h2>
               </div>
               <a
