@@ -281,7 +281,7 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="grid gap-6 lg:grid-cols-3">
+          <section className="grid gap-6 md:grid-cols-2">
             {services.map((service) => (
               <div key={service.title} className="glass-card rounded-3xl p-6">
                 <h3 className="section-title text-2xl font-semibold text-[color:var(--ink)]">
