@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const recipient = "test@test.com";
+const recipient = process.env.SMTP_TO || "bbamovers@gmail.com";
 
 type QuotePayload = {
   name?: string;
