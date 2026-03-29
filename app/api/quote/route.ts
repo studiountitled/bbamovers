@@ -1,13 +1,18 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
-const recipient = process.env.SMTP_TO || "bbamovers@gmail.com";
+const recipient = process.env.SMTP_TO;
 
 type QuotePayload = {
   name?: string;
   phone?: string;
   city?: string;
   moveDate?: string;
+  homeSize?: string;
+  truckSize?: string;
+  mileage?: string;
+  stairsInfo?: string;
+  disassembly?: string;
   details?: string;
 };
 
@@ -31,14 +36,21 @@ export async function POST(request: Request) {
       );
     }
 
+    const smtpHost = process.env.SMTP_HOST || process.env.BREVO_SMTP_SERVER;
+    const smtpPort = Number(
+      process.env.SMTP_PORT || process.env.BREVO_PORT || 587
+    );
+    const smtpUser = process.env.SMTP_USER || process.env.BREVO_LOGIN;
+    const smtpPass = process.env.SMTP_PASS || process.env.BREVO_SMTP_KEY;
+
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT || 587),
+      host: smtpHost,
+      port: smtpPort,
       secure: process.env.SMTP_SECURE === "true",
-      auth: process.env.SMTP_USER
+      auth: smtpUser
         ? {
-            user: process.env.SMTP_USER,
-            pass: process.env.SMTP_PASS,
+            user: smtpUser,
+            pass: smtpPass,
           }
         : undefined,
     });
@@ -53,6 +65,11 @@ export async function POST(request: Request) {
 Phone: ${body.phone}
 City: ${body.city}
 Move date: ${body.moveDate}
+Home size: ${body.homeSize || "Not provided"}
+Truck size: ${body.truckSize || "Not provided"}
+Mileage: ${body.mileage || "Not provided"}
+Stairs info: ${body.stairsInfo || "Not provided"}
+Disassembly/assembly: ${body.disassembly || "Not provided"}
 
 Details:
 ${body.details}`,

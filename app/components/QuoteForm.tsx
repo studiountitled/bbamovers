@@ -1,12 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type FormState = {
   name: string;
   phone: string;
   city: string;
   moveDate: string;
+  homeSize: string;
+  truckSize: string;
+  mileage: string;
+  stairsInfo: string;
+  disassembly: string;
   details: string;
 };
 
@@ -17,6 +22,11 @@ const initialState: FormState = {
   phone: "",
   city: "",
   moveDate: "",
+  homeSize: "",
+  truckSize: "",
+  mileage: "",
+  stairsInfo: "",
+  disassembly: "",
   details: "",
 };
 
@@ -53,12 +63,34 @@ export default function QuoteForm() {
     "idle"
   );
   const [message, setMessage] = useState<string>("");
+  const [toastMessage, setToastMessage] = useState<string>("");
+  const [toastVisible, setToastVisible] = useState(false);
+  const toastTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const updateField = (field: keyof FormState, value: string) => {
     setFormState((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) {
       setErrors((prev) => ({ ...prev, [field]: undefined }));
     }
+  };
+
+  useEffect(() => {
+    return () => {
+      if (toastTimeoutRef.current) {
+        clearTimeout(toastTimeoutRef.current);
+      }
+    };
+  }, []);
+
+  const showToast = (nextMessage: string) => {
+    setToastMessage(nextMessage);
+    setToastVisible(true);
+    if (toastTimeoutRef.current) {
+      clearTimeout(toastTimeoutRef.current);
+    }
+    toastTimeoutRef.current = setTimeout(() => {
+      setToastVisible(false);
+    }, 4000);
   };
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -88,6 +120,7 @@ export default function QuoteForm() {
 
       setStatus("success");
       setMessage("Thanks! We’ll be in touch shortly.");
+      showToast("Email sent. We’ll be in touch shortly.");
       setFormState(initialState);
     } catch (error) {
       setStatus("error");
@@ -160,12 +193,12 @@ export default function QuoteForm() {
       </div>
       <div>
         <input
+          type="date"
           className={`w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.moveDate
               ? "border-red-400"
               : "border-[color:var(--brand-ember)]/20"
           }`}
-          placeholder="Move date"
           value={formState.moveDate}
           onChange={(event) => updateField("moveDate", event.target.value)}
           aria-invalid={Boolean(errors.moveDate)}
@@ -196,6 +229,50 @@ export default function QuoteForm() {
           </p>
         ) : null}
       </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <input
+            className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
+            placeholder="Home size (e.g., 2 bed / 1,200 sq ft)"
+            value={formState.homeSize}
+            onChange={(event) => updateField("homeSize", event.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
+            placeholder="Truck size needed (if known)"
+            value={formState.truckSize}
+            onChange={(event) => updateField("truckSize", event.target.value)}
+          />
+        </div>
+      </div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <div>
+          <input
+            className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
+            placeholder="Mileage / distance"
+            value={formState.mileage}
+            onChange={(event) => updateField("mileage", event.target.value)}
+          />
+        </div>
+        <div>
+          <input
+            className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
+            placeholder="Stairs / elevator info"
+            value={formState.stairsInfo}
+            onChange={(event) => updateField("stairsInfo", event.target.value)}
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
+          placeholder="Disassembly / assembly needed?"
+          value={formState.disassembly}
+          onChange={(event) => updateField("disassembly", event.target.value)}
+        />
+      </div>
       <button
         className="cta-button rounded-full px-6 py-3 text-sm font-semibold"
         type="submit"
@@ -216,6 +293,15 @@ export default function QuoteForm() {
           Prefer to talk? Call 334 912 2747.
         </p>
       )}
+      <div
+        className={`pointer-events-none fixed left-1/2 top-6 z-50 w-[90%] max-w-[360px] -translate-x-1/2 rounded-2xl bg-emerald-600 px-4 py-3 text-center text-sm font-semibold text-white shadow-lg transition-all duration-200 ${
+          toastVisible ? "translate-y-0 opacity-100" : "-translate-y-3 opacity-0"
+        }`}
+        role="status"
+        aria-live="polite"
+      >
+        {toastMessage}
+      </div>
     </form>
   );
 }
