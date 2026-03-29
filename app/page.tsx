@@ -19,6 +19,11 @@ const services = [
     copy:
       "Piano Moving\nSafe, Smooth & Secure relocation of any type of piano. Within the same building or to a new location",
   },
+  {
+    title: "Movers Only Services",
+    copy:
+      "Already have your own truck? No problem! BBA Movers can supply movers only to assist you with loading and unloading.",
+  },
 ];
 
 const processSteps = [
@@ -281,9 +286,20 @@ export default function Home() {
             </div>
           </section>
 
-          <section className="grid gap-6 md:grid-cols-2">
-            {services.map((service) => (
-              <div key={service.title} className="glass-card rounded-3xl p-6">
+          <section className="grid gap-6 md:grid-cols-6">
+            {services.map((service, index) => {
+              const layoutClass =
+                index === 3
+                  ? "md:col-span-2 md:col-start-2"
+                  : index === 4
+                    ? "md:col-span-2 md:col-start-4"
+                    : "md:col-span-2";
+
+              return (
+                <div
+                  key={service.title}
+                  className={`glass-card rounded-3xl p-6 ${layoutClass}`}
+                >
                 <h3 className="section-title text-2xl font-semibold text-[color:var(--ink)]">
                   {service.title}
                 </h3>
@@ -299,6 +315,8 @@ export default function Home() {
                           ? "/gallery-2.jpg"
                           : service.title === "Long Distance"
                             ? "/gallery-12.jpg"
+                            : service.title === "Movers Only Services"
+                              ? "/gallery-13.jpg"
                             : "/gallery-11.jpg"
                     }
                     alt={service.title}
@@ -308,7 +326,8 @@ export default function Home() {
                   />
                 </div>
               </div>
-            ))}
+              );
+            })}
           </section>
 
           <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
