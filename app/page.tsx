@@ -51,33 +51,54 @@ const stats = [
 const pricing = [
   {
     title: "10 ft Truck",
-    price: "$200 + $5/mile",
-    note: "Recommended for studio moves",
+    price: "$220 + $5/mile",
+    note: "Recommended for studio",
   },
   {
     title: "15 ft Truck",
-    price: "$300 + $5/mile",
-    note: "Recommended for 1BR moves",
+    price: "$340 + $5/mile",
+    note: "Recommended for 1BR",
   },
   {
     title: "20 ft Truck",
-    price: "$450 + $3/mile",
-    note: "Recommended for 2BR moves",
+    price: "$480 + $4/mile",
+    note: "Recommended for 2BR",
   },
   {
     title: "26 ft Truck",
-    price: "$700 + $3/mile",
-    note: "Recommended for 3+ BR moves",
+    price: "$750 + $4/mile",
+    note: "Recommended for 3+BR",
   },
 ];
 
 const pricingNotes = [
+  "THE TRUCK SIZE YOU PICK IS UP TO YOU!",
   "Pricing applies to one-way trips.",
   "Mileage is charged for the distance between pickup and drop-off locations.",
-  "$50 per floor for downstairs stairs.",
-  "$100 per floor for upstairs stairs.",
-  "All truck bookings include a $20 petrol fee.",
-  "Free disassembly included.",
+  "Up to $100/floor stairs fee to go downstairs.",
+  "Up to $150/floor stairs fee to go upstairs.",
+  "Free disassembly.",
+  "$50 per item assembly for beds, washing machines & dryers.",
+  "Free assembly for all other furniture items.",
+];
+
+const moversOnlyPricing = [
+  {
+    title: "10 ft Truck",
+    price: "$150 load / $100 unload",
+  },
+  {
+    title: "15 ft Truck",
+    price: "$200 load / $150 unload",
+  },
+  {
+    title: "20 ft Truck",
+    price: "$260 load / $220 unload",
+  },
+  {
+    title: "26 ft Truck",
+    price: "$380 load / $350 unload",
+  },
 ];
 
 const reviews = [
@@ -169,6 +190,53 @@ const faqs = [
     question: "What if my date changes?",
     answer:
       "We’ll adjust your schedule based on availability. The earlier we know, the more options we can offer.",
+  },
+  {
+    question: "What happens if my items don’t fit in the one way truck?",
+    answer:
+      "If the truck is full and you still have some leftover items, you will have to pay for another truck load to pick up the rest of your items. But we will discount subsequent trips!",
+  },
+  {
+    question: "What is mileage charge?",
+    answer:
+      "Mileage charge is a fee we charge based on the distance from your pickup location to your drop-off location only.",
+  },
+  {
+    question: "Do I have to pay more if the job is taking longer than expected?",
+    answer:
+      "No. Your one-way fee is valid until your job is complete, no matter how long or short the job takes. We will work efficiently until you get what you paid for.",
+  },
+  {
+    question: "Will all my items be transported?",
+    answer:
+      "BBA Movers is responsible for transporting furniture, appliances, moving boxes, and bags. We have a fee for pianos. We also transport other musical equipment and work tools, but we may or may not charge a fee. We do not take loose items, propane tanks, lamps, or shoe boxes. We do not offer packing services.",
+  },
+  {
+    question:
+      "Do I need to disassemble all my furniture before the movers get here?",
+    answer:
+      "You can do that if you want to, but you do not have to. BBA Movers will disassemble anything we need to disassemble at no extra cost.",
+  },
+  {
+    question: "Will the movers assemble all my furniture?",
+    answer:
+      "BBA Movers will charge an assembly fee of $50 per item for beds, washing machines, and dryers. Any other assembly will be taken care of for free (for example, dressers and tables).",
+  },
+  {
+    question: "Will I need to pay extra for my furniture to be wrapped?",
+    answer:
+      "Furniture protection via wrapping and blankets is given to the customer at no extra cost. If you demand bubble wrapping, we may or may not charge a fee for that. Call us and give us details to know where you stand.",
+  },
+  {
+    question: "What sort of extra fees can I expect to pay?",
+    answer:
+      "Possible add-ons include piano fees, stairs fees, mileage fees, assembly fees, and bubble wrapping fees. There may or may not be an extra fee for bulky items (like exercise equipment), very heavy uncommon items, work tools, very large safes, and very heavy musical appliances (some DJ sets, guitar speaker cabinets, and similar items).",
+  },
+  {
+    question:
+      "How many movers should I expect to show up and will I need to pay extra for more movers?",
+    answer:
+      "The number of movers for your job will be decided by BBA Movers based on staff availability and the complexity of your job. You will never need to pay extra for more movers, and requesting fewer movers will not reduce your amount due.",
   },
 ];
 
@@ -398,7 +466,7 @@ export default function Home() {
                     </p>
                     {item.title === "20 ft Truck" ? (
                       <span className="rounded-full bg-[color:var(--brand-yellow)]/40 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-[color:var(--accent)]">
-                        Recommended
+                        Best Value
                       </span>
                     ) : null}
                   </div>
@@ -416,6 +484,38 @@ export default function Home() {
                 <div key={note} className="flex items-start gap-2">
                   <span className="mt-1 h-2 w-2 rounded-full bg-[color:var(--brand-tangerine)]" />
                   <span>{note}</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section id="movers-only-pricing">
+            <div className="flex flex-wrap items-end justify-between gap-6">
+              <div>
+                <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                  Movers Only Prices
+                </p>
+                <h2 className="section-title mt-3 text-3xl font-semibold">
+                  Loading and unloading only.
+                </h2>
+                <p className="mt-3 max-w-xl text-sm text-[color:var(--muted)]">
+                  Already have your own truck? Pick your truck size and choose
+                  the help you need.
+                </p>
+              </div>
+            </div>
+            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {moversOnlyPricing.map((item) => (
+                <div
+                  key={item.title}
+                  className="glass-card flex h-full flex-col rounded-3xl p-6"
+                >
+                  <p className="text-sm uppercase tracking-[0.2em] text-[color:var(--muted)]">
+                    {item.title}
+                  </p>
+                  <p className="section-title mt-3 text-2xl font-semibold text-[color:var(--ink)]">
+                    {item.price}
+                  </p>
                 </div>
               ))}
             </div>
