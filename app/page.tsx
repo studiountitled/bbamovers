@@ -80,6 +80,8 @@ const pricingNotes = [
   "Free disassembly.",
   "$50 per item assembly for beds, washing machines & dryers.",
   "Free assembly for all other furniture items.",
+  '*Some orders may be subject to additional "truck fees".',
+  "*Rates updated as of 10 May 2026 and may be subject to changes in the future.",
 ];
 
 const moversOnlyPricing = [
