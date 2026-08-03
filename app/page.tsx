@@ -16,13 +16,11 @@ const services = [
   },
   {
     title: "Piano Moves",
-    copy:
-      "Piano Moving\nSafe, Smooth & Secure relocation of any type of piano. Within the same building or to a new location",
+    copy: "Piano Moving\nSafe, Smooth & Secure relocation of any type of piano. Within the same building or to a new location",
   },
   {
     title: "Movers Only Services",
-    copy:
-      "Already have your own truck? No problem! BBA Movers can supply movers only to assist you with loading and unloading.",
+    copy: "Already have your own truck? No problem! BBA Movers can supply movers only to assist you with loading and unloading.",
   },
 ];
 
@@ -51,22 +49,22 @@ const stats = [
 const pricing = [
   {
     title: "10 ft Truck",
-    price: "$220 + $5/mile",
+    price: "$200 + $5/mile",
     note: "Recommended for studio",
   },
   {
     title: "15 ft Truck",
-    price: "$340 + $5/mile",
+    price: "$320 + $5/mile",
     note: "Recommended for 1BR",
   },
   {
     title: "20 ft Truck",
-    price: "$480 + $4/mile",
+    price: "$420 + $4/mile",
     note: "Recommended for 2BR",
   },
   {
     title: "26 ft Truck",
-    price: "$750 + $4/mile",
+    price: "$720 + $4/mile",
     note: "Recommended for 3+BR",
   },
 ];
@@ -204,7 +202,8 @@ const faqs = [
       "Mileage charge is a fee we charge based on the distance from your pickup location to your drop-off location only.",
   },
   {
-    question: "Do I have to pay more if the job is taking longer than expected?",
+    question:
+      "Do I have to pay more if the job is taking longer than expected?",
     answer:
       "No. Your one-way fee is valid until your job is complete, no matter how long or short the job takes. We will work efficiently until you get what you paid for.",
   },
@@ -370,32 +369,32 @@ export default function Home() {
                   key={service.title}
                   className={`glass-card rounded-3xl p-6 ${layoutClass}`}
                 >
-                <h3 className="section-title text-2xl font-semibold text-[color:var(--ink)]">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm text-[color:var(--muted)]">
-                  {service.copy}
-                </p>
-                <div className="mt-4 aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10">
-                  <Image
-                    src={
-                      service.title === "Residential Moving"
-                        ? "/gallery-3.jpg"
-                        : service.title === "Commercial Moving"
-                          ? "/gallery-2.jpg"
-                          : service.title === "Long Distance"
-                            ? "/gallery-12.jpg"
-                            : service.title === "Movers Only Services"
-                              ? "/gallery-13.jpg"
-                            : "/gallery-11.jpg"
-                    }
-                    alt={service.title}
-                    width={600}
-                    height={360}
-                    className="h-full w-full object-cover object-top"
-                  />
+                  <h3 className="section-title text-2xl font-semibold text-[color:var(--ink)]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-[color:var(--muted)]">
+                    {service.copy}
+                  </p>
+                  <div className="mt-4 aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10">
+                    <Image
+                      src={
+                        service.title === "Residential Moving"
+                          ? "/gallery-3.jpg"
+                          : service.title === "Commercial Moving"
+                            ? "/gallery-2.jpg"
+                            : service.title === "Long Distance"
+                              ? "/gallery-12.jpg"
+                              : service.title === "Movers Only Services"
+                                ? "/gallery-13.jpg"
+                                : "/gallery-11.jpg"
+                      }
+                      alt={service.title}
+                      width={600}
+                      height={360}
+                      className="h-full w-full object-cover object-top"
+                    />
+                  </div>
                 </div>
-              </div>
               );
             })}
           </section>
