@@ -1,26 +1,38 @@
 import Image from "next/image";
+import Link from "next/link";
 import QuoteForm from "./components/QuoteForm";
+import {
+  businessName,
+  displayPhone,
+  jsonLd,
+  serviceAreas,
+} from "@/lib/seo";
 
 const services = [
   {
-    title: "Residential Moving",
-    copy: "Clear timelines, and respectful crews for homes and apartments.",
+    title: "Residential Moving in Alabama",
+    slug: "residential-moving",
+    copy: "Home and apartment movers with clear timelines, careful furniture protection, and respectful crews.",
   },
   {
-    title: "Commercial Moving",
-    copy: "After-hours and weekend availability to keep your business running.",
+    title: "Commercial Moving Services",
+    slug: "commercial-moving",
+    copy: "Office and small-business moves with after-hours and weekend availability to keep your business running.",
   },
   {
-    title: "Long Distance",
-    copy: "Coordinated transport across Alabama, Georgia, and beyond with tracked updates.",
+    title: "Long Distance Moving from Alabama to Georgia",
+    slug: "long-distance-moving",
+    copy: "Coordinated one-way and long-distance moving across Alabama, Georgia, and nearby Southeast routes.",
   },
   {
-    title: "Piano Moves",
-    copy: "Piano Moving\nSafe, Smooth & Secure relocation of any type of piano. Within the same building or to a new location",
+    title: "Piano Moving Services",
+    slug: "piano-moving",
+    copy: "Safe, smooth, and secure piano relocation within the same building or to a new location.",
   },
   {
-    title: "Movers Only Services",
-    copy: "Already have your own truck? No problem! BBA Movers can supply movers only to assist you with loading and unloading.",
+    title: "Movers Only Loading and Unloading",
+    slug: "movers-only-loading-unloading",
+    copy: "Already have your own truck? BBA Movers can supply movers only to assist with loading and unloading.",
   },
 ];
 
@@ -37,13 +49,6 @@ const processSteps = [
     title: "Move day, done right",
     copy: "A focused team that protects your space and delivers on schedule.",
   },
-];
-
-const stats = [
-  { label: "Avg. Quote Time", value: "15 min" },
-  { label: "Moves Coordinated", value: "2,300+" },
-  { label: "Returning Clients", value: "62%" },
-  { label: "Damage-Free Rate", value: "98%" },
 ];
 
 const pricing = [
@@ -244,6 +249,18 @@ const faqs = [
 export default function Home() {
   return (
     <div className="page-bg min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd.movingCompany),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd.faq(faqs)),
+        }}
+      />
       <div className="px-6 pb-16 pt-8 sm:px-10 lg:px-16">
         <header className="relative mx-auto flex w-full max-w-6xl items-center justify-between gap-6">
           <div className="flex items-center gap-3">
@@ -261,7 +278,7 @@ export default function Home() {
                 BBA Movers
               </p>
               <p className="text-xs text-[color:var(--muted)]">
-                Alabama &amp; Georgia
+                Alabama &amp; Georgia Movers
               </p>
             </div>
           </div>
@@ -298,11 +315,13 @@ export default function Home() {
                   Professional Moving & Relocation Services
                 </p>
                 <h1 className="section-title mt-4 text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
-                  Moving day, but make it easy.
+                  Reliable Movers in Alabama and Georgia
                 </h1>
                 <p className="mt-4 max-w-xl text-[18px] text-[color:var(--muted)] sm:text-[19px]">
                   <span className="text-[color:var(--ink)]">
-                    We turn moving chaos into calm.
+                    Residential, commercial, piano, movers-only, and
+                    long-distance moving help with clear pricing and careful
+                    crews.
                   </span>
                 </p>
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -320,7 +339,7 @@ export default function Home() {
                   </a>
                 </div>
                 <p className="mt-6 text-base font-semibold text-[color:var(--accent)]">
-                  Same-day availability · No hidden fees · Call 334 912 2747
+                  Same-day availability · No hidden fees · Call {displayPhone}
                 </p>
               </div>
 
@@ -338,7 +357,7 @@ export default function Home() {
                   </p>
                   <div className="mt-6 rounded-2xl border border-white/50 bg-white/80 p-4 text-base text-[color:var(--muted)]">
                     Based in Alabama and serving Georgia too. We bring the
-                    truck, you bring the snacks.
+                    truck, the crew, and the route plan.
                   </div>
                 </div>
               </div>
@@ -346,7 +365,7 @@ export default function Home() {
             <div className="relative z-10 mt-10 lg:mt-12">
               <Image
                 src="/hero-move.jpg"
-                alt="BBA Movers team helping a customer move"
+                alt="BBA Movers team loading furniture for a residential move in Alabama"
                 width={1400}
                 height={720}
                 className="h-64 w-full rounded-[28px] object-cover shadow-[0_18px_40px_rgba(142,47,31,0.18)] sm:h-72 lg:h-80"
@@ -375,20 +394,28 @@ export default function Home() {
                   <p className="mt-3 text-sm text-[color:var(--muted)]">
                     {service.copy}
                   </p>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="mt-4 inline-flex text-sm font-semibold text-[color:var(--accent)] underline decoration-[color:var(--brand-ember)]/30 underline-offset-4"
+                  >
+                    Learn more
+                  </Link>
                   <div className="mt-4 aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[color:var(--brand-ember)]/10">
                     <Image
                       src={
-                        service.title === "Residential Moving"
+                        service.title === "Residential Moving in Alabama"
                           ? "/gallery-3.jpg"
-                          : service.title === "Commercial Moving"
+                          : service.title === "Commercial Moving Services"
                             ? "/gallery-2.jpg"
-                            : service.title === "Long Distance"
+                            : service.title ===
+                                "Long Distance Moving from Alabama to Georgia"
                               ? "/gallery-12.jpg"
-                              : service.title === "Movers Only Services"
+                              : service.title ===
+                                  "Movers Only Loading and Unloading"
                                 ? "/gallery-13.jpg"
                                 : "/gallery-11.jpg"
                       }
-                      alt={service.title}
+                      alt={`${businessName} ${service.title.toLowerCase()} service`}
                       width={600}
                       height={360}
                       className="h-full w-full object-cover object-top"
@@ -397,6 +424,36 @@ export default function Home() {
                 </div>
               );
             })}
+          </section>
+
+          <section
+            id="service-areas"
+            className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]"
+          >
+            <div>
+              <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
+                Service areas
+              </p>
+              <h2 className="section-title mt-4 text-3xl font-semibold">
+                Alabama movers serving Georgia routes too.
+              </h2>
+              <p className="mt-4 text-sm text-[color:var(--muted)]">
+                BBA Movers helps with local moves, one-way truck moves, and
+                long-distance relocations throughout Alabama and Georgia,
+                including apartment, home, office, piano, loading, and
+                unloading jobs.
+              </p>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-2">
+              {serviceAreas.map((area) => (
+                <div
+                  key={area}
+                  className="rounded-2xl border border-[color:var(--brand-ember)]/10 bg-white/80 px-5 py-4 text-base font-semibold text-[color:var(--ink)]"
+                >
+                  {area}
+                </div>
+              ))}
+            </div>
           </section>
 
           <section className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
@@ -443,7 +500,8 @@ export default function Home() {
                 </h2>
                 <p className="mt-3 max-w-xl text-sm text-[color:var(--muted)]">
                   Choose the truck size that fits your move. We’ll confirm the
-                  final rate once we map your route and timing.
+                  final moving rate once we map your Alabama or Georgia route,
+                  timing, stairs, and any specialty items.
                 </p>
               </div>
               <a
@@ -538,7 +596,7 @@ export default function Home() {
                 >
                   <Image
                     src={src}
-                    alt={`BBA Movers gallery ${index + 1}`}
+                    alt={`${businessName} moving crew and truck photo ${index + 1}`}
                     width={900}
                     height={700}
                     className="h-full w-full object-cover"
@@ -665,6 +723,12 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[color:var(--muted)]">
+            <Link
+              href="/services"
+              className="underline decoration-[color:var(--brand-ember)]/40 underline-offset-4"
+            >
+              Services
+            </Link>
             <span>☎️ 334 912 2747</span>
             <span>📍 Alabama, Georgia</span>
           </div>
