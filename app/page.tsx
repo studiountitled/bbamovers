@@ -49,22 +49,22 @@ const stats = [
 const pricing = [
   {
     title: "10 ft Truck",
-    price: "$200 + $5/mile",
+    price: "$300",
     note: "Recommended for studio",
   },
   {
     title: "15 ft Truck",
-    price: "$320 + $5/mile",
+    price: "$450",
     note: "Recommended for 1BR",
   },
   {
     title: "20 ft Truck",
-    price: "$420 + $4/mile",
+    price: "$620",
     note: "Recommended for 2BR",
   },
   {
-    title: "26 ft Truck",
-    price: "$720 + $4/mile",
+    title: "36 ft Truck",
+    price: "$850",
     note: "Recommended for 3+BR",
   },
 ];
