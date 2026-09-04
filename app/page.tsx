@@ -748,7 +748,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              prairies.studio
+              prairies.studios
             </a>
           </div>
         </div>
