@@ -135,7 +135,16 @@ export default function QuoteForm() {
   return (
     <form className="grid gap-4" onSubmit={handleSubmit} noValidate>
       <div>
+        <label
+          htmlFor="quote-name"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Full name
+        </label>
         <input
+          id="quote-name"
+          name="name"
+          autoComplete="name"
           className={`w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.name
               ? "border-red-400"
@@ -154,7 +163,18 @@ export default function QuoteForm() {
         ) : null}
       </div>
       <div>
+        <label
+          htmlFor="quote-phone"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Phone number
+        </label>
         <input
+          id="quote-phone"
+          name="phone"
+          type="tel"
+          inputMode="tel"
+          autoComplete="tel"
           className={`w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.phone
               ? "border-red-400"
@@ -173,7 +193,16 @@ export default function QuoteForm() {
         ) : null}
       </div>
       <div>
+        <label
+          htmlFor="quote-city"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Current city
+        </label>
         <input
+          id="quote-city"
+          name="city"
+          autoComplete="address-level2"
           className={`w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.city
               ? "border-red-400"
@@ -192,7 +221,15 @@ export default function QuoteForm() {
         ) : null}
       </div>
       <div>
+        <label
+          htmlFor="quote-date"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Preferred move date
+        </label>
         <input
+          id="quote-date"
+          name="moveDate"
           type="date"
           className={`w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.moveDate
@@ -211,7 +248,15 @@ export default function QuoteForm() {
         ) : null}
       </div>
       <div>
+        <label
+          htmlFor="quote-details"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Move details
+        </label>
         <textarea
+          id="quote-details"
+          name="details"
           className={`min-h-[120px] w-full rounded-2xl border bg-white px-4 py-3 text-sm placeholder:text-sm ${
             errors.details
               ? "border-red-400"
@@ -231,7 +276,15 @@ export default function QuoteForm() {
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
+          <label
+            htmlFor="quote-home-size"
+            className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+          >
+            Home size
+          </label>
           <input
+            id="quote-home-size"
+            name="homeSize"
             className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
             placeholder="Home size (e.g., 2 bed / 1,200 sq ft)"
             value={formState.homeSize}
@@ -239,7 +292,15 @@ export default function QuoteForm() {
           />
         </div>
         <div>
+          <label
+            htmlFor="quote-truck-size"
+            className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+          >
+            Truck size
+          </label>
           <input
+            id="quote-truck-size"
+            name="truckSize"
             className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
             placeholder="Truck size needed (if known)"
             value={formState.truckSize}
@@ -249,7 +310,15 @@ export default function QuoteForm() {
       </div>
       <div className="grid gap-4 md:grid-cols-2">
         <div>
+          <label
+            htmlFor="quote-mileage"
+            className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+          >
+            Estimated distance
+          </label>
           <input
+            id="quote-mileage"
+            name="mileage"
             className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
             placeholder="Mileage / distance"
             value={formState.mileage}
@@ -257,7 +326,15 @@ export default function QuoteForm() {
           />
         </div>
         <div>
+          <label
+            htmlFor="quote-stairs"
+            className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+          >
+            Stairs or elevator
+          </label>
           <input
+            id="quote-stairs"
+            name="stairsInfo"
             className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
             placeholder="Stairs / elevator info"
             value={formState.stairsInfo}
@@ -266,7 +343,15 @@ export default function QuoteForm() {
         </div>
       </div>
       <div>
+        <label
+          htmlFor="quote-disassembly"
+          className="mb-2 block text-sm font-semibold text-[color:var(--ink)]"
+        >
+          Assembly needs
+        </label>
         <input
+          id="quote-disassembly"
+          name="disassembly"
           className="w-full rounded-2xl border border-[color:var(--brand-ember)]/20 bg-white px-4 py-3 text-sm placeholder:text-sm"
           placeholder="Disassembly / assembly needed?"
           value={formState.disassembly}

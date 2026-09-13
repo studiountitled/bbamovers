@@ -17,28 +17,41 @@ const oswald = Oswald({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default:
-      "BBA Movers | Alabama Movers for Residential, Commercial & Long Distance Moves",
+    default: "Movers in Montgomery, AL | BBA Movers",
     template: `%s | ${businessName}`,
   },
   description:
-    "BBA Movers provides residential, commercial, piano, movers-only, and long-distance moving services across Alabama and Georgia. Request a fast quote or call 334-912-2747.",
+    "Montgomery movers for residential, commercial, piano, movers-only, and long-distance moves across Alabama and Georgia. Call 334-912-2747 for a quote.",
+  applicationName: businessName,
+  authors: [{ name: businessName }],
+  creator: businessName,
+  publisher: businessName,
   alternates: {
     canonical: "/",
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
-    title:
-      "BBA Movers | Alabama Movers for Residential, Commercial & Long Distance Moves",
+    title: "Movers in Montgomery, AL | BBA Movers",
     description:
-      "Local and long-distance movers serving Alabama and Georgia with truck packages, movers-only loading help, piano moving, and same-day quote support.",
+      "Montgomery-based movers serving Alabama and Georgia with truck packages, movers-only loading help, piano moving, and long-distance routes.",
     url: "/",
     siteName: businessName,
     images: [
       {
         url: "/hero-move.jpg",
-        width: 1400,
-        height: 720,
-        alt: "BBA Movers team helping a customer move in Alabama",
+        width: 1000,
+        height: 1332,
+        alt: "BBA Movers team loading furniture for a move",
       },
     ],
     locale: "en_US",
@@ -46,14 +59,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "BBA Movers | Alabama Movers for Residential, Commercial & Long Distance Moves",
+    title: "Movers in Montgomery, AL | BBA Movers",
     description:
       "Residential, commercial, piano, movers-only, and long-distance moving across Alabama and Georgia.",
     images: ["/hero-move.jpg"],
   },
   icons: {
     icon: "/logo.png",
+  },
+  formatDetection: {
+    telephone: false,
   },
 };
 

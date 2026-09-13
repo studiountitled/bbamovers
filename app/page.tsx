@@ -5,7 +5,8 @@ import {
   businessName,
   displayPhone,
   jsonLd,
-  serviceAreas,
+  seoLocations,
+  thumbtackUrl,
 } from "@/lib/seo";
 
 const services = [
@@ -77,7 +78,7 @@ const pricing = [
 const pricingNotes = [
   "THE TRUCK SIZE YOU PICK IS UP TO YOU!",
   "Pricing applies to one-way trips.",
-  "Mileage is charged for the distance between pickup and drop-off locations.",
+  "Mileage fees of $0-$3 per mile might be charged for the distance from the pick up to the drop off location in some cases.",
   "Up to $100/floor stairs fee to go downstairs.",
   "Up to $150/floor stairs fee to go upstairs.",
   "Free disassembly.",
@@ -204,7 +205,7 @@ const faqs = [
   {
     question: "What is mileage charge?",
     answer:
-      "Mileage charge is a fee we charge based on the distance from your pickup location to your drop-off location only.",
+      "Mileage fees of $0-$3 per mile might be charged for the distance from the pick up to the drop off location in some cases.",
   },
   {
     question:
@@ -283,7 +284,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hidden items-center gap-4 text-sm text-[color:var(--muted)] md:flex">
-            <span>TETRIS WORLD CHAMPIONS</span>
+            <span>Montgomery-based moving crew</span>
             <span className="h-1 w-1 rounded-full bg-[color:var(--brand-ember)]/40" />
             <span>Residential, Commercial &amp; Long Distance</span>
           </div>
@@ -315,7 +316,7 @@ export default function Home() {
                   Professional Moving & Relocation Services
                 </p>
                 <h1 className="section-title mt-4 text-4xl font-semibold leading-tight text-[color:var(--ink)] sm:text-6xl">
-                  Reliable Movers in Alabama and Georgia
+                  Movers in Montgomery, AL Serving Alabama and Georgia
                 </h1>
                 <p className="mt-4 max-w-xl text-[18px] text-[color:var(--muted)] sm:text-[19px]">
                   <span className="text-[color:var(--ink)]">
@@ -346,18 +347,18 @@ export default function Home() {
               <div className="glass-card hidden rounded-[28px] p-6 lg:block">
                 <div className="rounded-2xl bg-[color:var(--brand-ember)]/10 p-6 text-[16.5px] sm:text-[17px]">
                   <p className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]">
-                    Tetris World Champions
+                    A move plan built around your needs
                   </p>
                   <h2 className="section-title mt-4 text-3xl font-semibold text-[color:var(--ink)] sm:text-4xl">
-                    We pack like a puzzle.
+                    Clear details before move day.
                   </h2>
                   <p className="mt-3 text-base text-[color:var(--muted)]">
-                    Think tight stacks, padded corners, and a crew that treats
-                    your stuff like it’s their grandma’s china.
+                    BBA Movers reviews the route, truck size, stairs, access,
+                    and specialty items before confirming your moving plan.
                   </p>
                   <div className="mt-6 rounded-2xl border border-white/50 bg-white/80 p-4 text-base text-[color:var(--muted)]">
-                    Based in Alabama and serving Georgia too. We bring the
-                    truck, the crew, and the route plan.
+                    Based in Montgomery and serving Alabama and Georgia routes.
+                    Full truck packages and movers-only help are available.
                   </div>
                 </div>
               </div>
@@ -445,14 +446,21 @@ export default function Home() {
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {serviceAreas.map((area) => (
-                <div
-                  key={area}
+              {seoLocations.map((location) => (
+                <Link
+                  key={location.slug}
+                  href={`/locations/${location.slug}`}
                   className="rounded-2xl border border-[color:var(--brand-ember)]/10 bg-white/80 px-5 py-4 text-base font-semibold text-[color:var(--ink)]"
                 >
-                  {area}
-                </div>
+                  {location.city}, {location.state}
+                </Link>
               ))}
+              <Link
+                href="/locations"
+                className="rounded-2xl border border-[color:var(--brand-ember)]/20 bg-[color:var(--brand-yellow)]/20 px-5 py-4 text-base font-semibold text-[color:var(--ink)]"
+              >
+                View all service areas
+              </Link>
             </div>
           </section>
 
@@ -616,12 +624,22 @@ export default function Home() {
                   Real People, Real Reviews
                 </h2>
               </div>
-              <a
-                className="cta-button rounded-full px-4 py-2 text-sm font-semibold"
-                href="#quote"
-              >
-                Get my quote
-              </a>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  className="outline-button rounded-full px-4 py-2 text-sm font-semibold"
+                  href={thumbtackUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  See reviews on Thumbtack
+                </a>
+                <a
+                  className="cta-button rounded-full px-4 py-2 text-sm font-semibold"
+                  href="#quote"
+                >
+                  Get my quote
+                </a>
+              </div>
             </div>
             <div className="mt-8 grid gap-6 lg:grid-cols-3">
               {reviews.map((review) => (
@@ -637,7 +655,7 @@ export default function Home() {
                   </div>
                   <div className="mt-2 flex items-center gap-2 text-sm text-[color:var(--muted)]">
                     <span className="text-[color:#2f9f5b]">★★★★★</span>
-                    <span>{review.detail}</span>
+                    <span>{review.detail} customer review</span>
                   </div>
                   <p className="text-sm text-[color:var(--muted)]">
                     “{review.quote}”
@@ -667,7 +685,7 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-[color:var(--brand-tangerine)]" />
-                    Based in Alabama, serving Georgia
+                    Based in Montgomery, serving Alabama and Georgia
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="h-2 w-2 rounded-full bg-[color:var(--brand-tangerine)]" />
@@ -718,8 +736,8 @@ export default function Home() {
               BBA Movers
             </p>
             <p className="text-xs text-[color:var(--muted)]">
-              TETRIS WORLD CHAMPIONS · Residential, Commercial &amp; Long
-              Distance
+              Montgomery-based residential, commercial, and long-distance
+              movers
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-sm text-[color:var(--muted)]">
@@ -729,8 +747,14 @@ export default function Home() {
             >
               Services
             </Link>
-            <span>☎️ 334 912 2747</span>
-            <span>📍 Alabama, Georgia</span>
+            <Link
+              href="/locations"
+              className="underline decoration-[color:var(--brand-ember)]/40 underline-offset-4"
+            >
+              Service Areas
+            </Link>
+            <a href="tel:13349122747">Call 334 912 2747</a>
+            <span>Montgomery, AL</span>
           </div>
           <a
             className="cta-button rounded-full px-5 py-2 text-sm font-semibold"
